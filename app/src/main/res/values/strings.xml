@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyMoviesAssignment</string>
+    <string name="no_search_result">Data not found</string>
+</resources>
