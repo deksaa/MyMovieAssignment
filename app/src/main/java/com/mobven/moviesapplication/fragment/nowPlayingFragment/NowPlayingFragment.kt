@@ -19,7 +19,7 @@ class NowPlayingFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         this.setRetainInstance(true)
-        return inflater.inflate(R.layout.now_playing_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_common_movie_list, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

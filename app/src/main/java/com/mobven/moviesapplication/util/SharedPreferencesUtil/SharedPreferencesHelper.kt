@@ -1,30 +1,19 @@
 package com.mobven.moviesapplication.util.SharedPreferencesUtil
 
 import android.content.Context
-import android.content.SharedPreferences
 
-class SharedPreferencesHelper(
-    private val mContext: Context,
-    private val mPreferenceName: String,
-    private val mDataLabel: String) : ISharedPreference
+class SharedPreferencesHelper(mContext: Context, mPreferenceName: String) : ISharedPreference
 {
-    private var mSharedPreferences: SharedPreferences? = null
-    private val mData: String? = null
+    private var mSharedPreferences = mContext.getSharedPreferences(mPreferenceName, Context.MODE_PRIVATE)
 
-    var payload: String?
-        get() = loadPreferences()
-        set(data) = savePreferences(data)
-
-    override fun loadPreferences(): String? {
-        mSharedPreferences = mContext.getSharedPreferences(mPreferenceName, Context.MODE_PRIVATE)
-        return mSharedPreferences!!.getString(mDataLabel, "")
+    override fun loadPreferences(dataLabel: String?): String? {
+        return mSharedPreferences!!.getString(dataLabel, "")
     }
 
-    override fun savePreferences(data: String?) {
-        mSharedPreferences = mContext.getSharedPreferences(mPreferenceName, Context.MODE_PRIVATE)
+    override fun savePreferences(dataLabel: String?, data: String?) {
         val editor = mSharedPreferences!!.edit()
 
-        editor.putString(mDataLabel, data)
+        editor.putString(dataLabel, data)
 
         editor.commit()
     }

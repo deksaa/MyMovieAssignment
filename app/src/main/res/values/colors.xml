@@ -8,5 +8,5 @@
     <color name="red">#E02013</color>
     <color name="white">#FFFFFF</color>
     <color name="tab_indicator_color">#BC1B10</color>
-    <color name="tab_text_color">#FBA59F</color>
+    <color name="tab_text_color">#DFDFDF</color>
 </resources>

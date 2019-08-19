@@ -5,11 +5,10 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class SharedPreferencesModule(context: Context, preferenceName: String, label: String) {
+class SharedPreferencesModule(context: Context, preferenceName: String) {
 
     private var mContext: Context = context
     private var mPreferenceName: String = preferenceName
-    private var mLabel: String = label
 
     @Provides
     fun provideContext(): Context{
@@ -17,15 +16,13 @@ class SharedPreferencesModule(context: Context, preferenceName: String, label: S
     }
 
     @Provides
-    fun providePreferencesNameAndLabel(): String{
-        return mPreferenceName + " " + mLabel
+    fun providePreferencesName(): String{
+        return mPreferenceName
     }
 
     @Provides
-    fun providesharedPreference(context: Context, preferenceAndLabel: String): SharedPreferencesHelper{
-        var preferenceName = preferenceAndLabel.split(" ").get(0)
-        var label = preferenceAndLabel.split(" ").get(1)
-        return SharedPreferencesHelper(context, preferenceName, label)
+    fun providesharedPreference(context: Context, preferenceName: String): SharedPreferencesHelper{
+        return SharedPreferencesHelper(context, preferenceName)
     }
 
 }

@@ -1,4 +1,6 @@
 package com.mobven.moviesapplication.activity.moviedetailsactivity
 
-class MovieDetailsActivity {
+import androidx.appcompat.app.AppCompatActivity
+
+class MovieDetailsActivity: AppCompatActivity() {
 }

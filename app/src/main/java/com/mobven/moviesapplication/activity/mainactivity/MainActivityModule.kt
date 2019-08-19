@@ -1,4 +1,4 @@
-package com.mobven.moviesapplication.mainactivity
+package com.mobven.moviesapplication.activity.mainactivity
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager

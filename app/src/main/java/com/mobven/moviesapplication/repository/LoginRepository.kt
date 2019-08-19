@@ -6,6 +6,7 @@ import com.mobven.moviesapplication.service.ResponseCallback
 import com.mobven.moviesapplication.api.ApiManager
 import com.mobven.moviesapplication.model.LoginCredentialModel
 import com.mobven.moviesapplication.model.Token
+import com.mobven.moviesapplication.response.LoginResponse
 import com.mobven.moviesapplication.response.RequestTokenResponse
 import com.mobven.moviesapplication.response.SessionResponse
 import retrofit2.Call
@@ -15,7 +16,7 @@ import javax.inject.Inject
 
 class LoginRepository @Inject constructor(): IRepository {
 
-    override fun getRequestToken(@NonNull apiKey: String, callback: ResponseCallback<RequestTokenResponse>) {
+    override fun getRequestToken(@NonNull apiKey: String, @NonNull callback: ResponseCallback<RequestTokenResponse>) {
         ApiManager
             .create(LoginService::class.java)
             .getRequestToken(apiKey)
@@ -30,7 +31,22 @@ class LoginRepository @Inject constructor(): IRepository {
             })
     }
 
-    override fun createSession(apiKey: String, token: Token, callback: ResponseCallback<SessionResponse>) {
+    override fun login(@NonNull apiKey: String, @NonNull credential: LoginCredentialModel, @NonNull callback: ResponseCallback<LoginResponse>) {
+        ApiManager
+            .create(LoginService::class.java)
+            .login(apiKey, credential)
+            .enqueue(object : Callback<LoginResponse>{
+                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                    callback.onFailure(call, t)
+                }
+
+                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                    callback.onSuccess(call, response.body()!!)
+                }
+            })
+    }
+
+    override fun createSession(@NonNull apiKey: String, @NonNull token: Token, @NonNull callback: ResponseCallback<SessionResponse>) {
         ApiManager
             .create(LoginService::class.java)
             .createSession(apiKey, token)

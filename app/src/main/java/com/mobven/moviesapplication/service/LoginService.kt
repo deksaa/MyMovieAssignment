@@ -1,6 +1,8 @@
 package com.mobven.moviesapplication.service
 
+import com.mobven.moviesapplication.model.LoginCredentialModel
 import com.mobven.moviesapplication.model.Token
+import com.mobven.moviesapplication.response.LoginResponse
 import com.mobven.moviesapplication.response.RequestTokenResponse
 import com.mobven.moviesapplication.response.SessionResponse
 import retrofit2.Call
@@ -17,7 +19,7 @@ interface LoginService {
     @POST("/3/authentication/session/new")
     fun createSession(@Query("api_key") apiKey: String, @Body token: Token): Call<SessionResponse>
 
-//    @POST("/3/authentication/token/validate_with_login")
-//    fun login(@Query("api_key") apiKey: String, @Body credential: LoginCredentialModel): Call<Token>
+    @POST("/3/authentication/token/validate_with_login")
+    fun login(@Query("api_key") apiKey: String, @Body credential: LoginCredentialModel): Call<LoginResponse>
 
 }

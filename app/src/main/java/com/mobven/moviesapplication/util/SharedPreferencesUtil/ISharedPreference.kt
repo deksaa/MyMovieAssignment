@@ -2,7 +2,7 @@ package com.mobven.moviesapplication.util.SharedPreferencesUtil
 
 interface ISharedPreference {
 
-    fun loadPreferences(): String?
+    fun loadPreferences(dataLabel: String?): String?
 
-    fun savePreferences(data: String?)
+    fun savePreferences(dataLabel: String?, data: String?)
 }

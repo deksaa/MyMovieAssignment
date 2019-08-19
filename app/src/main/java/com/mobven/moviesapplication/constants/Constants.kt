@@ -10,6 +10,8 @@ class Constants {
 
         val API_PREF_NAME = "api_prefs"
 
-        val API_PREF_LABEL = "request_token"
+        val API_PREF_REQUEST_TOKEN = "request_token"
+
+        val API_PREF_SESSION_ID = "session_id"
     }
 }

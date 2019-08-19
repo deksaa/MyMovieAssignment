@@ -14,10 +14,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true"
             tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-                  android:name=".splashactivity.SplashActivity"
+                  android:name="com.mobven.moviesapplication.activity.splashactivity.SplashActivity"
                   android:screenOrientation="portrait"
                   android:theme="@style/AppTheme.Splash">
             <intent-filter>
@@ -28,7 +29,7 @@
         </activity>
 
         <activity
-                android:name=".mainactivity.MainActivity"
+                android:name="com.mobven.moviesapplication.activity.mainactivity.MainActivity"
                 android:screenOrientation="portrait"/>
     </application>
 

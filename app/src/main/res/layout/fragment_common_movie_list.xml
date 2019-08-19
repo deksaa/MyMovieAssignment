@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragment.topRatedFragment.TopRatedFragment">
 
-</LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/movieListRV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:listitem="@layout/movie_list_item"
+    />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/contentProgressPB"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"/>
+
+    <TextView
+            android:id="@+id/errorTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"/>
+
+
+</FrameLayout>

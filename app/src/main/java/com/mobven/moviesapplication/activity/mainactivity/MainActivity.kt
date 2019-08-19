@@ -1,4 +1,4 @@
-package com.mobven.moviesapplication.mainactivity
+package com.mobven.moviesapplication.activity.mainactivity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,11 +8,6 @@ import butterknife.ButterKnife
 import com.google.android.material.tabs.TabLayout
 import com.mobven.moviesapplication.R
 import com.mobven.moviesapplication.adapter.MainPagerAdapter
-import com.mobven.moviesapplication.fragment.favoritesFragment.FavouritesFragment
-import com.mobven.moviesapplication.fragment.nowPlayingFragment.NowPlayingFragment
-import com.mobven.moviesapplication.fragment.topRatedFragment.TopRatedFragment
-import com.mobven.moviesapplication.fragment.upcomingFragment.UpComingFragment
-import dagger.Binds
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainActivityContract.View {
@@ -49,6 +44,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
 
     override fun initViews() {
         mainViewPager.setAdapter(mainPagerAdapter)
+        mainViewPager.offscreenPageLimit = 4
         mainTabLayout.setupWithViewPager(mainViewPager)
     }
 }

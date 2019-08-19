@@ -3,16 +3,16 @@ package com.mobven.moviesapplication.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class LoginCredentialModel {
+class LoginCredentialModel(username: String, password: String, request_token: String) {
 
     @SerializedName("username")
     @Expose
-    var username: String? = null
+    private var mUsername: String? = username
     @SerializedName("password")
     @Expose
-    var password: String? = null
+    private var mPassword: String? = password
     @SerializedName("request_token")
     @Expose
-    var requestToken: String? = null
+    private var mRequestToken: String? = request_token
 
 }

@@ -1,4 +1,8 @@
 package com.mobven.moviesapplication.app
 
-class MyMoviesApplicationComponent {
+import dagger.Component
+
+@Component
+interface MyMoviesApplicationComponent {
+    fun inject(app: MyMoviesApplication)
 }
